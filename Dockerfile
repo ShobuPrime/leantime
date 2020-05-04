@@ -4,6 +4,13 @@ ARG LEAN_VERSION=2.1.1
 
 WORKDIR /var/www/html
 
+ENV USER_ID=1000
+ENV GROUP_ID=1000
+ENV LEAN_DB_DATABASE=leantime
+ENV LEAN_DB_PASSWORD=321.qwerty
+ENV LEAN_DB_USER=admin
+ENV LEAN_DB_HOST=leantime_db
+
 # Install dependencies
 RUN apk update && apk add --no-cache \
     mysql-client \
@@ -41,4 +48,4 @@ RUN sed -i '/LoadModule rewrite_module/s/^#//g' /etc/apache2/httpd.conf && \
 
 # Expose port 9000 and start php-fpm server
 ENTRYPOINT ["/start.sh"]
-EXPOSE 80
+EXPOSE 443
