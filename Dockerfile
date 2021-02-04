@@ -1,6 +1,6 @@
 FROM php:7.2-fpm-alpine
 
-ARG LEAN_VERSION=2.1.1
+ARG LEAN_VERSION=2.1.6
 
 WORKDIR /var/www/html
 
